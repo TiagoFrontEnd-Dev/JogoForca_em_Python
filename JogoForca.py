@@ -16,15 +16,17 @@ Faça a contagem de tentativas do seu usuário e exiba na tela.
 
 import os
 
-palavra_secreta = 'programação' # aqui vem a palavra que você quiser
+palavra_secreta = 'Cocó'  # aqui vem a palavra que você quiser
+dica = 'A dica e uma nessecidade basica exemplificada por um número * e tem uma repetição de letras'
 letras_acertadas = ''
 numero_tentativas = 0
 
-
 while True:
-    letra_digitada = input('Digite uma letra: ')
+    print('Vamos começar nosso Jogo de Forca')
+    print('A unica dica é: ',dica)
+    letra_digitada = input('Digite uma letra:')
     numero_tentativas += 1
-
+    print
     if len(letra_digitada) > 1:
         print('Digite apenas uma letra ! ')
         continue
@@ -43,8 +45,12 @@ while True:
 
     if palavra_formada == palavra_secreta:
         os.system('cls')
-        print('VOCÊ GANHOUU!! PARABÉNS!!')
-        print('A palavra era: ', palavra_secreta)
+
+        if numero_tentativas < 5:
+            print('VOCÊ GANHOUU!! PARABÉNS!!')
+        elif numero_tentativas >= 5:
+            print('VOCÊ GANHOUU!! MEUS PARABÉNS MAS AINDA PRECISAMOS MELHORAR, VAMOS DE NOVO ?')
         print('Tentativas', numero_tentativas)
+        print('A palavra era: ', palavra_secreta)
         print('The End...')
         break
